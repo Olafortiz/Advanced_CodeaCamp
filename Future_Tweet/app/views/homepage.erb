@@ -1,0 +1,42 @@
+<br>
+<br>
+<form id="send" action="/tweet" method="post">
+<textarea placeholder="Write a tweet" id="tweet" name="tweet"></textarea>
+<br>
+<input type="submit" value="submit">
+</form>
+<p id="hola"></p>
+<br>
+<br>
+<form id="handle" action="/user/search" method="post">
+<input id="username" type="text" name="username" placeholder="User search" >
+<input type="hidden" value="<%= @username %>" name="user">
+<input id="submit" type="submit" value="submit">
+</form>
+<br>
+<br>
+<br>
+<br>
+
+<h1><%= @username %></h1>
+<% if @tweets %>
+  <% @tweets.each do |tweet| %>
+    <ul>
+      <li><%= tweet.body %></li>
+      <br>
+    </ul>  
+  <% end %>
+<% end %>
+
+<div id="spinner">
+  <center>
+  <img id="spinner" src="/img/spinner.gif" alt="Loading..." style="width:128px;height:128px;"/>
+</center>
+</div>
+
+
+<div id="logout">
+  <form action="/log_out" method="post">
+      <input class="icontwitter" type=image src="http://image.flaticon.com/icons/png/128/56/56805.png" style="float: right;">
+  </form>
+</div>
